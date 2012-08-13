@@ -27,12 +27,21 @@ class TemplateRepository extends EntityRepository
     {
         try
         {
-            return $this->getEntityManager()->createQuery('
+            $result = $this->getEntityManager()->createQuery('
                 SELECT t.updated_at FROM DifaneTwigDatabaseBundle:Template t                
                 WHERE t.name = :name
             ')
             ->setParameter('name', $name)
-            ->getSingleScalarResult();
+            ->getSingleResult();
+
+            if(false == is_null($result) && is_array($result) && array_key_exists("updated_at", $result))
+            {
+                return $result["updated_at"]->getTimestamp();
+            }
+            else
+            {
+                return null;
+            }
         }
         catch (\Doctrine\ORM\NoResultException $e)
         {
