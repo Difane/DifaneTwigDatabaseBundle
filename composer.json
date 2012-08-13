@@ -1,5 +1,5 @@
 {
-    "name": "Difane/DifaneTwigDatabaseBundle",
+    "name": "difane/difane-twig-database-bundle",
     "description": "Bundle that provides possibility to store twig templates in database in addition to filesystem and manage them.",
     "type": "symfony-bundle",
     "keywords": ["twig", "database"],
