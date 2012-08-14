@@ -8,6 +8,8 @@
         <parameter key="difane.bundle.twigdatabase.twig.loader.database.class">Difane\Bundle\TwigDatabaseBundle\Twig\DatabaseLoader</parameter>
         <parameter key="difane.bundle.twigdatabase.twig.loader.chain.class">Twig_Loader_Chain</parameter>
         <parameter key="difane.bundle.twigdatabase.twig.loader.database.autocreatetemplates">false</parameter>
+        <parameter key="difane.bundle.twigdatabase.database.tablename">difane_twig_database_template</parameter>
+        <parameter key="difane.bundle.twigdatabase.database.tablename.subscriber.class">Difane\Bundle\TwigDatabaseBundle\Subscriber\TableNameSubscriber</parameter>
     </parameters>
 
     <services>
@@ -24,6 +26,11 @@
             <call method="addLoader">
                  <argument type="service" id="difane.bundle.twigdatabase.twig.loader.database" />
             </call>
+        </service>
+
+        <service id="difane.bundle.twigdatabase.database.tablename.subscriber" class="%difane.bundle.twigdatabase.database.tablename.subscriber.class%">
+            <argument>%difane.bundle.twigdatabase.database.tablename%</argument>
+            <tag name="doctrine.event_subscriber" />
         </service>
     </services>
 </container>
