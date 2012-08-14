@@ -25,6 +25,8 @@ class DifaneTwigDatabaseExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
+        $container->setParameter('difane.bundle.twigdatabase.twig.loader.database.autocreatetemplates', $config['auto_create_templates']);
+
         if(true == $config['sonata_admin']['enabled'])
         {
             $loader->load('sonata-admin.xml');

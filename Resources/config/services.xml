@@ -7,12 +7,14 @@
     <parameters>
         <parameter key="difane.bundle.twigdatabase.twig.loader.database.class">Difane\Bundle\TwigDatabaseBundle\Twig\DatabaseLoader</parameter>
         <parameter key="difane.bundle.twigdatabase.twig.loader.chain.class">Twig_Loader_Chain</parameter>
+        <parameter key="difane.bundle.twigdatabase.twig.loader.database.autocreatetemplates">false</parameter>
     </parameters>
 
     <services>
         <service id="difane.bundle.twigdatabase.twig.loader.database" class="%difane.bundle.twigdatabase.twig.loader.database.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="logger" />
+            <argument>%difane.bundle.twigdatabase.twig.loader.database.autocreatetemplates%</argument>
         </service>
 
         <service id="difane.bundle.twigdatabase.twig.loader.chain" class="%difane.bundle.twigdatabase.twig.loader.chain.class%">
