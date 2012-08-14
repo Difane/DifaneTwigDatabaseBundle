@@ -20,6 +20,21 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('difane_twig_database');
 
+        $rootNode
+            ->children()
+                ->scalarNode('table_name')->defaultValue('difane_twig_database_template')->end()
+                ->booleanNode('auto_create_templates')->defaultFalse()->end()
+                ->arrayNode('sonata_admin')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->booleanNode('enabled')->defaultTrue()->end()
+                        ->scalarNode('group')->defaultValue('Twig')->end()
+                        ->scalarNode('label')->defaultValue('Templates')->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
+
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.
