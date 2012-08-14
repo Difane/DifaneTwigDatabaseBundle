@@ -7,9 +7,6 @@
     <parameters>
         <parameter key="difane.bundle.twigdatabase.twig.loader.database.class">Difane\Bundle\TwigDatabaseBundle\Twig\DatabaseLoader</parameter>
         <parameter key="difane.bundle.twigdatabase.twig.loader.chain.class">Twig_Loader_Chain</parameter>
-
-        <parameter key="difane.bundle.twigdatabase.admin.template.class">Difane\Bundle\TwigDatabaseBundle\Admin\TemplateAdmin</parameter>
-        <parameter key="difane.bundle.twigdatabase.entity.template">Difane\Bundle\TwigDatabaseBundle\Entity\Template</parameter>
     </parameters>
 
     <services>
@@ -25,13 +22,6 @@
             <call method="addLoader">
                  <argument type="service" id="difane.bundle.twigdatabase.twig.loader.database" />
             </call>
-        </service>
-
-        <service id="difane.bundle.twigdatabase.admin.template" class="%difane.bundle.twigdatabase.admin.template.class%">
-            <tag name="sonata.admin" manager_type="orm" group="Twig" label="Templates" />
-            <argument />
-            <argument>%difane.bundle.twigdatabase.entity.template%</argument>
-            <argument />
         </service>
     </services>
 </container>

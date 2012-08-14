@@ -24,5 +24,12 @@ class DifaneTwigDatabaseExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        if(true == $config['sonata_admin']['enabled'])
+        {
+            $loader->load('sonata-admin.xml');
+            $container->setParameter('difane.bundle.twigdatabase.admin.template.group', $config['sonata_admin']['group']);
+            $container->setParameter('difane.bundle.twigdatabase.admin.template.label', $config['sonata_admin']['label']);
+        }
     }
 }

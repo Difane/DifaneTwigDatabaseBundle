@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="difane.bundle.twigdatabase.admin.template.class">Difane\Bundle\TwigDatabaseBundle\Admin\TemplateAdmin</parameter>
+        <parameter key="difane.bundle.twigdatabase.entity.template">Difane\Bundle\TwigDatabaseBundle\Entity\Template</parameter>
+        <parameter key="difane.bundle.twigdatabase.admin.template.group">Twig</parameter>
+        <parameter key="difane.bundle.twigdatabase.admin.template.label">Templates</parameter>
+    </parameters>
+
+    <services>
+        <service id="difane.bundle.twigdatabase.admin.template" class="%difane.bundle.twigdatabase.admin.template.class%">
+            <tag name="sonata.admin" manager_type="orm" group="%difane.bundle.twigdatabase.admin.template.group%" label="%difane.bundle.twigdatabase.admin.template.label%" />
+            <argument />
+            <argument>%difane.bundle.twigdatabase.entity.template%</argument>
+            <argument />
+        </service>
+    </services>
+</container>
