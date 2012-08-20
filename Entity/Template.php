@@ -158,4 +158,13 @@ class Template
     {
         return $this->updated_at;
     }
+
+    /**
+     * Returns template string representation
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
 }
