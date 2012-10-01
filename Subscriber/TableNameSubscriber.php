@@ -9,7 +9,7 @@ class TableNameSubscriber implements \Doctrine\Common\EventSubscriber
 
     public function __construct($name)
     {
-        $this->name = (string) $name;        
+        $this->name = (string) $name;
     }
 
     public function getSubscribedEvents()

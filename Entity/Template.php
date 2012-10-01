@@ -12,7 +12,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @UniqueEntity("name")
  */
 class Template
-{   
+{
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -44,7 +44,7 @@ class Template
      * @ORM\PrePersist
      */
     public function handlePrePersist()
-    {        
+    {
         $this->created_at = new \DateTime;
         $this->updated_at = new \DateTime;
     }
@@ -60,7 +60,7 @@ class Template
     /**
      * Get id
      *
-     * @return string 
+     * @return string
      */
     public function getId()
     {
@@ -70,20 +70,20 @@ class Template
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string   $name
      * @return Template
      */
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -93,20 +93,20 @@ class Template
     /**
      * Set content
      *
-     * @param string $content
+     * @param  string   $content
      * @return Template
      */
     public function setContent($content)
     {
         $this->content = $content;
-    
+
         return $this;
     }
 
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
     public function getContent()
     {
@@ -116,20 +116,20 @@ class Template
     /**
      * Set created_at
      *
-     * @param \DateTime $createdAt
+     * @param  \DateTime $createdAt
      * @return Template
      */
     public function setCreatedAt($createdAt)
     {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
     /**
      * Get created_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -139,20 +139,20 @@ class Template
     /**
      * Set updated_at
      *
-     * @param \DateTime $updatedAt
+     * @param  \DateTime $updatedAt
      * @return Template
      */
     public function setUpdatedAt($updatedAt)
     {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
     /**
      * Get updated_at
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {

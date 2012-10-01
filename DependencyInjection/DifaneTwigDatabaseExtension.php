@@ -28,8 +28,7 @@ class DifaneTwigDatabaseExtension extends Extension
         $container->setParameter('difane.bundle.twigdatabase.twig.loader.database.autocreatetemplates', $config['auto_create_templates']);
         $container->setParameter('difane.bundle.twigdatabase.database.tablename', $config['table_name']);
 
-        if(true == $config['sonata_admin']['enabled'])
-        {
+        if (true == $config['sonata_admin']['enabled']) {
             $loader->load('sonata-admin.xml');
             $container->setParameter('difane.bundle.twigdatabase.admin.template.group', $config['sonata_admin']['group']);
             $container->setParameter('difane.bundle.twigdatabase.admin.template.label', $config['sonata_admin']['label']);
